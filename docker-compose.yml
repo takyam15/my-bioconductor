@@ -1,0 +1,15 @@
+version: '3'
+services:
+  rstudio:
+    build: .
+    image: takyam15/my-bioconductor:latest
+    container_name: bioconductor
+    env_file:
+        - ./.env
+    ports:
+     - "8787:8787"
+    volumes:
+     - ./R/bioconductor_docker:/usr/local/lib/R/host-site-library
+     - ./R:/home/rstudio
+    tty: true
+    stdin_open: true
