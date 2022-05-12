@@ -11,4 +11,5 @@ RUN apt-get update && \
 	texinfo && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
-RUN R -e 'BiocManager::install("BiocStyle")'
+RUN R -e 'BiocManager::install(c("Biobase", "BiocVersion", "BiocStyle", "DESeq2", "edgeR", "monocle", "mixOmics"))' && \
+    R -e 'install.packages(c("Seurat", "Signac", "WGCNA", "survival"))'

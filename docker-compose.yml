@@ -2,6 +2,7 @@ version: '3'
 services:
   rstudio:
     build: .
+    platform: linux/x86_64
     image: takyam15/my-bioconductor:latest
     container_name: bioconductor
     env_file:
@@ -13,3 +14,4 @@ services:
      - ./R:/home/rstudio
     tty: true
     stdin_open: true
+  
